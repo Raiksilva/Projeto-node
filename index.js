@@ -12,6 +12,10 @@ app.get('/', (req, res) =>{
     res.render('index',);
 })
 
+app.get('/perguntar', (req, res) =>{
+    res.render('perguntar');
+});
+
 app.listen(3030, function(erro){
     if(erro){
         console.log("O app está com algum erro.");
