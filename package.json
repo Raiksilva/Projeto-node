@@ -8,12 +8,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Raiksilva/PROJETO-Plataforma-Perguntas-Respostas.git"
+    "url": "git+https://github.com/Raiksilva/Projeto-node.git"
   },
   "author": "Raik silva",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Raiksilva/PROJETO-Plataforma-Perguntas-Respostas/issues"
+    "url": "https://github.com/Raiksilva/Projeto-node/issues"
   },
-  "homepage": "https://github.com/Raiksilva/PROJETO-Plataforma-Perguntas-Respostas#readme"
+  "homepage": "https://github.com/Raiksilva/Projeto-node.git#readme",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  }
 }
