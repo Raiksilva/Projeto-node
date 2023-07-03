@@ -1,11 +1,30 @@
 body{
     background-color: #0b96ce;
+    height: 100%;
 }
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
+}
+
 
 #cores{
     background-color: #147dc3;
+    --bs-navbar-padding-x: none;
+    --bs-navbar-padding-y: none;
 }
 
 #formulario-pergunta{
     margin-top: 15vh;
 }
+
+#formulario-resposta{
+    margin-bottom: 30px;
+}
+
+
