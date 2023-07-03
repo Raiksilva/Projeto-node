@@ -7,7 +7,7 @@ const Pergunta = connection.define('Perguntas',{
         allowNull: false,
         validate: {
             notEmpty: {
-              msg: 'O campo "descricao" não pode estar em branco.'
+              msg: 'O campo "titulo" não pode estar em branco.'
             }
         }
     },

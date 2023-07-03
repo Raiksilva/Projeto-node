@@ -6,7 +6,7 @@ const Resposta = connection.define('resposta',{
         type: Sequelize.TEXT,
         validate: {
             notEmpty: {
-              msg: 'O campo "descricao" não pode estar em branco.'
+              msg: 'O campo "corpo" não pode estar em branco.'
             }
         }
     },
@@ -15,7 +15,7 @@ const Resposta = connection.define('resposta',{
         allowNull: false,
         validate: {
             notEmpty: {
-              msg: 'O campo "descricao" não pode estar em branco.'
+              msg: 'O campo "perguntaId" não pode estar em branco.'
             }
         }
     }
