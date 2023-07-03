@@ -4,11 +4,20 @@ const connection = require("../database/database");
 const Resposta = connection.define('resposta',{
     corpo: {
         type: Sequelize.TEXT,
-        allowNull: false
+        validate: {
+            notEmpty: {
+              msg: 'O campo "descricao" não pode estar em branco.'
+            }
+        }
     },
     perguntaId: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            notEmpty: {
+              msg: 'O campo "descricao" não pode estar em branco.'
+            }
+        }
     }
 });
 

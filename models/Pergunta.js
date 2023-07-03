@@ -5,10 +5,20 @@ const Pergunta = connection.define('Perguntas',{
     titulo:{
         type: Sequelize.STRING,
         allowNull: false,
+        validate: {
+            notEmpty: {
+              msg: 'O campo "descricao" não pode estar em branco.'
+            }
+        }
     },
     descricao:{
         type: Sequelize.TEXT,
         allowNull: false,
+        validate: {
+            notEmpty: {
+              msg: 'O campo "descricao" não pode estar em branco.'
+            }
+        }
     },
 });
 
