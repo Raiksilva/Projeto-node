@@ -15,14 +15,14 @@ const Resposta = connection.define('resposta',{
         allowNull: false,
         validate: {
             notEmpty: {
-              msg: 'O campo "perguntaId" não pode estar em branco.'
+              msg: 'O campo "pergunta Id" não pode estar em branco.'
             }
         }
     }
 });
 
 Resposta.sync({force: false}).then(() =>{
-    console.log("tabela 2 sincronizada")
+    
 });
 
 module.exports = Resposta;

@@ -7,7 +7,7 @@ const Pergunta = connection.define('Perguntas',{
         allowNull: false,
         validate: {
             notEmpty: {
-              msg: 'O campo "titulo" não pode estar em branco.'
+              msg: 'O campo "título" não pode estar em branco.'
             }
         }
     },
@@ -16,14 +16,14 @@ const Pergunta = connection.define('Perguntas',{
         allowNull: false,
         validate: {
             notEmpty: {
-              msg: 'O campo "descricao" não pode estar em branco.'
+              msg: 'O campo "descrição" não pode estar em branco.'
             }
         }
     },
 });
 
 Pergunta.sync({force: false}).then(() =>{
-    console.log("Tabela 1 sincronizada");
+    
 });
 
 
