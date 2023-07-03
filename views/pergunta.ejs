@@ -18,17 +18,20 @@
             <hr>
             <h3>Respostas</h3>
             <hr>
-            <% respostas.forEach(resposta => { %>
-                <br>
-                <div class="card">
-                    <div class="card-body">
-                        <p><%= resposta.corpo %></p>
-                    </div>
-                </div>  
-            <% }) %>
+            <% if (respostas.length > 0) { %>
+                <% respostas.forEach(resposta => { %>
+                    <br>
+                    <div class="card">
+                        <div class="card-body">
+                            <p><%= resposta.corpo %></p>
+                        </div>
+                    </div>  
+                <% }) %>
+            <% } else { %>
+                <p>Não há respostas para esta pergunta.</p>
+            <% } %>
         </div>
         <%- include("partials/footer2.ejs")%>
     </div>
- 
 </body>
- <%- include("partials/footer.ejs")%>
+<%- include("partials/footer.ejs")%>
