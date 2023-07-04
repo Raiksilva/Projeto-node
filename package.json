@@ -2,8 +2,10 @@
   "name": "projeto-node",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
+    "start": "node .",
+    "dev": "nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -12,7 +14,10 @@
   },
   "author": "Raik silva",
   "license": "ISC",
-  "homepage": "raiksilva.github.io/projeto-node",
+  "bugs": {
+    "url": "https://github.com/Raiksilva/Projeto-node/issues"
+  },
+  "homepage": "https://github.com/Raiksilva/Projeto-node.git#readme",
   "dependencies": {
     "body-parser": "^1.20.2",
     "ejs": "^3.1.9",
