@@ -12,10 +12,7 @@
   },
   "author": "Raik silva",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Raiksilva/Projeto-node/issues"
-  },
-  "homepage": "https://github.com/Raiksilva/Projeto-node.git#readme",
+  "homepage": "raiksilva.github.io/projeto-node",
   "dependencies": {
     "body-parser": "^1.20.2",
     "ejs": "^3.1.9",
