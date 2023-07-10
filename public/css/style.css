@@ -3,7 +3,7 @@ body{
     height: 100%;
 }
 .wrapper {
-  min-height: 100vh;
+  height: 699px;
   display: flex;
   flex-direction: column;
 }
