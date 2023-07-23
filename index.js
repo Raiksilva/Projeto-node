@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const connection = require('./database/database');
 const Pergunta = require('./models/Pergunta');
 const Resposta = require('./models/Resposta');
+const { Op } = require('sequelize');
 
 
 // Database
@@ -28,13 +29,14 @@ app.use(bodyParser.json());
 
 // Rota responsável por chamar a página inicial do projeto web.
 app.get('/', (req, res) => {
+  let termoPesquisa = req.query.q || ''; // Obtém o termo de pesquisa da query string, ou define como uma string vazia se não houver pesquisa
   Pergunta.findAll({ raw: true, order: [['id', 'DESC']] })
     .then((perguntas) => {
       console.log(perguntas);
-      res.render('index', { perguntas: perguntas });
+      res.render('index', { perguntas: perguntas, termoPesquisa: termoPesquisa });
     });
 });
-
+ 
 // Rota responsável por chamar a página de perguntas do projeto web.
 app.get('/perguntar', (req, res) => {
   res.render('perguntar', { errorMessage: req.query.error });
@@ -97,7 +99,55 @@ app.post('/responder', (req, res) => {
     });
 });
 
-app.listen(3030, function (erro) {
+
+
+
+
+// Rota para pesquisa de perguntas
+app.get('/pesquisar', (req, res) => {
+  let termoPesquisa = req.query.q; // Obtém o termo de pesquisa da query string
+  let mensagem = null;
+  
+  if (!termoPesquisa) {
+    Pergunta.findAll({raw: true, order: [['id', 'DESC']]})
+    .then((perguntas) =>{
+      res.render('index', {perguntas: perguntas, termoPesquisa: termoPesquisa});
+    })
+    .catch((err) =>{
+      console.error(err);
+      res.redirect('/');
+    });
+  }else{
+
+    Pergunta.findAll({
+      where: {
+        titulo: {
+          [Op.like]: `%${termoPesquisa}%` // Usa a operação "like" para procurar títulos que contenham o termo de pesquisa
+        }
+      },
+      raw: true,
+      order: [['id', 'DESC']]
+    })
+      .then((perguntas) => {
+        if(perguntas.length == 0){
+          let mensagem = "Pergunta não encontrada!";
+          res.render('index', { perguntas: perguntas, termoPesquisa: termoPesquisa, mensagem: mensagem });
+        }
+          res.render('index', { perguntas: perguntas, termoPesquisa: termoPesquisa });
+      })
+    .catch((err) => {
+      console.log(err);
+      res.redirect('/');
+    });
+  }
+});
+
+
+
+
+
+
+app.listen(8080, function (erro) {
   if (erro) {
     console.log("O app está com algum erro.");
   } else {
